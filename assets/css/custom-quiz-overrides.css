@@ -1,0 +1,66 @@
+/**
+ * Custom overrides for quiz answer styling
+ */
+
+.wpProQuiz_button.wpProQuiz_QuestionButton{
+display: none;
+}
+.wpProQuiz_response {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Base styles for all answer items */
+.wpProQuiz_questionListItem {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: #e2e7ed !important;
+    margin-bottom: 8px !important;
+}
+
+/* Style for selected answer */
+.wpProQuiz_questionListItem input[type="radio"]:checked + label {
+    border-color: #2196F3 !important;
+    background-color: #f8f9fa !important;
+}
+
+
+
+
+/* Disabled state for answered questions */
+.wpProQuiz_questionListItem[style*="opacity: 0.7"] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: default !important;
+}
+
+/* Label styling */
+.wpProQuiz_questionListItem label {
+    display: inline-block !important;
+    align-items: center;
+    border: 2px solid #e2e7ed;
+    border-radius: 6px;
+    padding: 1em;
+    width: 100%;
+    margin: 0 !important;
+    transition: border-color 0.2s ease;
+}
+
+/* Remove any background colors from answer states */
+.wpProQuiz_questionListItem.wpProQuiz_answerCorrectIncomplete,
+.wpProQuiz_questionListItem.wpProQuiz_answerCorrect,
+.wpProQuiz_questionListItem.wpProQuiz_answerIncorrect {
+    background-color: transparent !important;
+}
+
+/* Block navigation for enforce_hint quizzes */
+body.quiz-enforce-hint .wpProQuiz_reviewQuestion {
+    pointer-events: none !important;
+    opacity: 0.6;
+}
+
+body.quiz-enforce-hint .wpProQuiz_reviewQuestion li {
+    cursor: not-allowed !important;
+}

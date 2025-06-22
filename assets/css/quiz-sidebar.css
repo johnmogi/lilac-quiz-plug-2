@@ -1,0 +1,196 @@
+/**
+ * Styles for Quiz Sidebar
+ */
+
+/* Quiz content wrapper */
+
+input.wpProQuiz_button.wpProQuiz_QuestionButton, 
+input.wpProQuiz_button.wpProQuiz_QuestionButton.wpProQuiz_TipButton.lilac-hint-highlight {
+    z-index: 100000;
+    position: relative;
+}
+
+input.wpProQuiz_button.wpProQuiz_QuestionButton {
+    z-index: 0;
+    position: relative;
+}
+
+.learndash-wrapper .wpProQuiz_reviewDiv {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+.quiz-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main quiz content */
+.quiz-main-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+/* Sidebar */
+.ld-quiz-sidebar {
+    width: 300px;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    position: sticky;
+    top: 30px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    align-self: flex-start; /* Align to the top of the flex container */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .quiz-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .ld-quiz-sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+        margin-top: 20px;
+    }
+}
+
+/* Media container */
+#question-media {
+    position: relative;
+    min-height: 200px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Media loading state */
+.media-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#question-media.loading .media-loading {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Media content */
+.media-content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#question-media.loading .media-content {
+    opacity: 0.3;
+}
+
+/* Image styling */
+.question-media-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.question-media-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Video styling */
+.question-media-video iframe {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Error message */
+.media-error {
+    display: none;
+    text-align: center;
+    padding: 20px 10px;
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+#question-media.error .media-error {
+    display: block;
+}
+
+#question-media.error .media-content {
+    display: none;
+}
+
+/* Fallback image */
+.fallback-image {
+    opacity: 0.7;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Responsive design */
+@media screen and (max-width: 992px) {
+    .quiz-container.quiz-with-sidebar {
+        flex-direction: column;
+    }
+    
+    .ld-quiz-sidebar {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 30px;
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+}
+
+/* Don't show sidebar when inside quiz answer feedback modal */
+.wpProQuiz_response .ld-quiz-sidebar {
+    display: none;
+}
