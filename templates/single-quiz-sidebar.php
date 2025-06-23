@@ -14,7 +14,6 @@ if (!defined('ABSPATH')) {
 // Include theme header
 get_header();
 
-
 // Get quiz ID and settings
 $quiz_id = get_the_ID();
 $enforce_hint = get_post_meta($quiz_id, '_ld_quiz_enforce_hint', true);
