@@ -43,3 +43,4 @@ The plugin looks for media in the following locations:
 
 # lilac-quiz-recovery-1
 # lilac-quiz-plug-2
+# lilac-quiz-plug-2
