@@ -625,6 +625,14 @@ var sidebarDebug = {
     
     // Initialize when document is ready
     $(document).ready(function() {
+        // Log if media sidebar is enabled
+        if (typeof lilacQuizSidebar !== 'undefined' && lilacQuizSidebar.hasSidebar) {
+            console.log('Media Sidebar: Enabled for quiz #' + lilacQuizSidebar.quizId);
+            console.log('Media Sidebar: Enforce Hint is ' + (lilacQuizSidebar.enforceHint ? 'enabled' : 'disabled'));
+        } else {
+            console.log('Media Sidebar: Not enabled for this quiz or lilacQuizSidebar not defined');
+        }
+        
         // Wait a bit to ensure LearnDash has initialized the quiz
         setTimeout(function() {
             init();
